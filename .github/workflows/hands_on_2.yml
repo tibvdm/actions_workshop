@@ -1,0 +1,21 @@
+name: Lint Python Code
+
+# Add the correct triggers for this workflow
+
+jobs:
+  run_python_linter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
+      - name: Install Python 3
+        run: |
+          sudo apt update
+          sudo apt install python3-pip
+
+      - name: Install dependencies
+        run: cd app && pip install -r requirements.txt
+
+      # Add steps that allow this workflow to run a linter on the Python code in the app directory
+

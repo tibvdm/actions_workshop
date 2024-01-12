@@ -1,0 +1,22 @@
+name: Print Temperature of Dynamically Provided City
+
+# Add the correct triggers for this workflow
+
+jobs:
+  print_temperature:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
+      - name: Install Python 3
+        run: |
+          sudo apt update
+          sudo apt install python3-pip
+
+      - name: Install dependencies
+        run: cd app && pip install -r requirements.txt
+
+      - name: Run app and print temperature
+        # Update the line below such that the correct city is passed to the app
+        run: cd app && python3 main.py Brussels

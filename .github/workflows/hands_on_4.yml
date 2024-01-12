@@ -1,0 +1,23 @@
+name: Print Temperature Using Secret API Key
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  print_temperature:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
+      - name: Install Python 3
+        run: |
+          sudo apt update
+          sudo apt install python3-pip
+
+      - name: Install dependencies
+        run: cd app && pip install -r requirements.txt
+
+      # Adjust this step such that it uses a secret API key that we've set up earlier.
+      - name: Run app and print secret temperature
+        run: cd app && python3 main.py Brussels
