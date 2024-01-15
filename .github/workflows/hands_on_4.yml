@@ -6,6 +6,10 @@ on:
 jobs:
   print_temperature:
     runs-on: ubuntu-latest
+
+    env:
+      WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
