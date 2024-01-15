@@ -11,4 +11,4 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Count all lines of python code
-        run: echo "Repository contains $(find . -name '*.py' | xargs wc -l) lines of Python code." 
+        run: find . -name '*.py' | xargs wc -l
