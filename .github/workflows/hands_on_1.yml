@@ -1,0 +1,14 @@
+name: Count the amound of python code
+
+on: [ push ]
+
+jobs:
+  run_python_counter:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Count all lines of python code
+        run: echo "Repository contains $(find . -name '*.py' | xargs wc -l) lines of Python code." 
