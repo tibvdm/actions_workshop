@@ -1,6 +1,12 @@
 name: Print Temperature of Dynamically Provided City
 
-# Add the correct triggers for this workflow
+on:
+  workflow_dispatch:
+    inputs:
+      location:
+        description: 'City to print temperature of'
+        required: false
+        default: 'Brussels'
 
 jobs:
   print_temperature:
@@ -18,5 +24,4 @@ jobs:
         run: cd app && pip install -r requirements.txt
 
       - name: Run app and print temperature
-        # Update the line below such that the correct city is passed to the app
-        run: cd app && python3 main.py Brussels
+        run: cd app && python3 main.py ${{ github.event.inputs.location }}
